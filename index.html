@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tag Analyzer</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML Tag Analyzer</h1>
+            <p class="subtitle">Analyze HTML documents and view tag statistics</p>
+        </header>
+
+        <div class="controls-section">
+            <div class="input-group">
+                <label for="urlInput">Enter URL:</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="urlInput" 
+                        placeholder="https://example.com"
+                        value="https://example.com"
+                    >
+                    <button id="fetchButton" class="btn btn-primary">Fetch & Analyze</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="searchInput">Search Tags:</label>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Type to filter tags..."
+                    disabled
+                >
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div class="results-header">
+                <h2 id="resultsTitle">Results</h2>
+                <div id="resultsCount" class="count-badge"></div>
+            </div>
+
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Fetching and analyzing HTML...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+            <div id="resultsContainer" class="results-container">
+                <div class="table-header">
+                    <div class="col-tag">Tag Name</div>
+                    <div class="col-count">Count</div>
+                </div>
+                <div id="virtualScrollContainer" class="virtual-scroll-container">
+                    <div id="virtualScrollContent" class="virtual-scroll-content"></div>
+                </div>
+            </div>
+
+            <div id="emptyState" class="empty-state">
+                <p>Enter a URL and click "Fetch & Analyze" to get started</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/htmlFetcher.js"></script>
+    <script src="src/htmlParser.js"></script>
+    <script src="src/tagAnalyzer.js"></script>
+    <script src="src/searchFilter.js"></script>
+    <script src="src/virtualScroller.js"></script>
+    <script src="src/main.js"></script>
+</body>
+</html>
